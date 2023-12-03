@@ -14,7 +14,7 @@ data "talos_machine_configuration" "this" {
           cni = {
             name = "none"
           }
-          podSubnets = var.pod_subnets
+          podSubnets     = var.pod_subnets
           serviceSubnets = var.service_subnets
         }
         proxy = {
@@ -44,7 +44,7 @@ data "talos_machine_configuration" "this" {
         }
         time = {
           disabled = false
-          servers = var.time_servers
+          servers  = var.time_servers
         }
         # features = {
         #   stableHostname = false
