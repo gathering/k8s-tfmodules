@@ -81,7 +81,7 @@ variable "service_subnets" {
 
 variable "nameservers" {
   description = "DNS Servers. Use DNS64 if this is a IPv6 only cluster"
-  default = ["2606:4700:4700::64"]
+  default     = ["2606:4700:4700::64"]
 }
 
 variable "datastore" {
