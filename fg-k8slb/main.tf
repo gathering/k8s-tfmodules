@@ -1,6 +1,6 @@
 resource "fortios_firewall_vip6" "this" {
-  name        = "k8s-lab-talos"
-  extip       = "2a02:d140:c012:3::eee"
+  name        = var.name
+  extip       = var.extip
   extport     = "6443"
   server_type = "tcp"
   ldb_method  = "static"
@@ -8,19 +8,14 @@ resource "fortios_firewall_vip6" "this" {
   type        = "server-load-balance"
 
   monitor {
-    name = "kube-tcp-check"
+    name = "kube-tcp-check" # Hardcoded
   }
 
-  realservers {
-    ip   = "2a02:d140:c012:14::2"
-    port = 6443
-  }
-  realservers {
-    ip   = "2a02:d140:c012:14::3"
-    port = 6443
-  }
-  realservers {
-    ip   = "2a02:d140:c012:14::4"
-    port = 6443
+  dynamic "realservers" {
+    for_each = var.realservers
+    content {
+      ip   = realservers.value
+      port = 6443
+    }
   }
 }

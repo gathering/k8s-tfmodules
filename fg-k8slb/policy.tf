@@ -3,9 +3,9 @@ resource "fortios_firewall_policy" "this" {
   inspection_mode  = "proxy"
   internet_service = "disable"
   logtraffic       = "all"
-  name             = "k8s-lab-talos-in"
+  name             = "${var.name}-in"
   schedule         = "always"
-  ssl_ssh_profile  = "SSL-Monitor"
+  ssl_ssh_profile  = "SSL-Monitor" # Hardcoded
   status           = "enable"
 
   dstintf {
@@ -21,7 +21,7 @@ resource "fortios_firewall_policy" "this" {
   }
 
   dstaddr6 {
-    name = "k8s-lab-talos"
+    name = fortios_firewall_vip6.this.name
   }
 
   service {
