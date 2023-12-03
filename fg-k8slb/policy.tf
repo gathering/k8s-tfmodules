@@ -21,14 +21,14 @@ resource "fortios_firewall_policy" "this" {
   }
 
   dstaddr6 {
-    name = fortios_firewall_vip6.this.name
+    name = fortios_firewall_vip6.k8s_api.name
+  }
+
+  dstaddr6 {
+    name = fortios_firewall_vip6.talos_control_api.name
   }
 
   service {
     name = "ALL"
   }
-
-  depends_on = [
-    fortios_firewall_vip6.this
-  ]
 }

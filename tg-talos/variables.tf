@@ -1,4 +1,6 @@
-variable "cluster_name" {}
+variable "cluster_name" {
+  description = "Cluster Name"
+}
 
 variable "node_prefix" {
   description = "Prefix for node name"
@@ -59,7 +61,8 @@ variable "talos_client_configuration" {
   description = "client_configuration"
 }
 
-variable "cluster_endpoint" {
+variable "cluster_ip" {
+  description = "IPv6 LB IP to cluster"
 }
 
 variable "cpu_type" {
@@ -67,14 +70,17 @@ variable "cpu_type" {
 }
 
 variable "pod_subnets" {
-  description = ""
+  description = "k8s pod subnets"
+  default     = []
 }
 
 variable "service_subnets" {
-  description = ""
+  description = "k8s service subnets"
+  default     = []
 }
 
 variable "nameservers" {
+  description = "DNS Servers. Use DNS64 if this is a IPv6 only cluster"
   default = ["2606:4700:4700::64"]
 }
 
@@ -92,4 +98,8 @@ variable "domain_name" {
 
 variable "time_servers" {
   default = ["time.cloudflare.com"]
+}
+
+variable "talos_version" {
+  default = "v1.5.5"
 }
