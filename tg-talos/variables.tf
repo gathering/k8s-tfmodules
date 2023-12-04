@@ -105,6 +105,6 @@ variable "talos_version" {
 }
 
 variable "talos_inline_manifests" {
-  type    = list(map())
+  #type    = list(map())
   default = []
 }
