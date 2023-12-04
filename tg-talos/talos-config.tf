@@ -52,6 +52,7 @@ data "talos_client_configuration" "this" {
   cluster_name         = var.cluster_name
   client_configuration = var.talos_client_configuration
   endpoints            = [var.cluster_ip]
+  nodes                = [for ip in netbox_available_ip_address.this[*].ip_address : trimsuffix(ip, "/64")]
 }
 
 resource "local_file" "talosclientconfig" {
