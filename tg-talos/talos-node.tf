@@ -7,15 +7,15 @@ data "talos_machine_configuration" "this" {
   examples         = false
   talos_version    = var.talos_version
 
-  config_patches = [yamlencode(merge({ machine = local.machine, cluster = local.cluster }))]
+  config_patches = var.type == "controlplane" ? local.controlplane_config_patches : local.worker_config_patches
 }
 
 resource "proxmox_virtual_environment_file" "this" {
-  count = length(data.proxmox_virtual_environment_nodes.available_nodes.names)
+  for_each = toset(data.proxmox_virtual_environment_nodes.available_nodes.names)
 
   content_type = "snippets"
   datastore_id = "local"
-  node_name    = data.proxmox_virtual_environment_nodes.available_nodes.names[count.index]
+  node_name    = each.value
 
   source_raw {
     data      = data.talos_machine_configuration.this.machine_configuration
@@ -42,7 +42,6 @@ resource "talos_machine_configuration_apply" "this" {
   machine_configuration_input = data.talos_machine_configuration.this.machine_configuration
   node                        = trimsuffix(netbox_available_ip_address.this[count.index].ip_address, "/64")
 
-  config_patches = [yamlencode(merge({ machine = local.machine, cluster = local.cluster }))]
   depends_on = [
     talos_machine_bootstrap.this[0]
   ]

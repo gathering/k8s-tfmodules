@@ -103,3 +103,8 @@ variable "time_servers" {
 variable "talos_version" {
   default = "v1.5.5"
 }
+
+variable "talos_inline_manifests" {
+  type    = list(map())
+  default = []
+}

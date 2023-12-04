@@ -1,6 +1,6 @@
 resource "fortios_firewall_policy" "this" {
   action           = "accept"
-  inspection_mode  = "proxy"
+  inspection_mode  = "flow"
   internet_service = "disable"
   logtraffic       = "all"
   name             = "${var.name}-in"
@@ -26,6 +26,10 @@ resource "fortios_firewall_policy" "this" {
 
   dstaddr6 {
     name = fortios_firewall_vip6.talos_control_api.name
+  }
+
+  dstaddr6 {
+    name = fortios_firewall_vip6.talosctl_api.name
   }
 
   service {

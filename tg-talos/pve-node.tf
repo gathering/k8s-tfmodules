@@ -32,7 +32,7 @@ resource "proxmox_virtual_environment_vm" "this" {
 
   initialization {
     # Talos Machine config
-    user_data_file_id = proxmox_virtual_environment_file.this[count.index].id
+    user_data_file_id = proxmox_virtual_environment_file.this[data.proxmox_virtual_environment_nodes.available_nodes.names[count.index]].id
 
     datastore_id = var.datastore
     interface    = "ide1"

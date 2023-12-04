@@ -18,9 +18,6 @@ locals {
     certSANs = [
       var.cluster_ip
     ]
-    # features = {
-    #   stableHostname = false
-    # }
   }
 
   cluster = {
@@ -46,4 +43,20 @@ locals {
       }
     }
   }
+
+  controlplane_config_patches = [yamlencode(merge({ machine = local.machine, cluster = local.cluster })), yamlencode({ cluster = { inlineManifests = var.talos_inline_manifests } })]
+  worker_config_patches       = [yamlencode(merge({ machine = local.machine, cluster = local.cluster }))]
+}
+
+data "talos_client_configuration" "this" {
+  cluster_name         = var.cluster_name
+  client_configuration = var.talos_client_configuration
+  endpoints            = [var.cluster_ip]
+}
+
+resource "local_file" "talosclientconfig" {
+  count = var.type == "controlplane" ? 1 : 0
+
+  content  = data.talos_client_configuration.this.talos_config
+  filename = "${path.root}/talosconfig"
 }
