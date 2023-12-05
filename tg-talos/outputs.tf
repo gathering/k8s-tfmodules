@@ -1,6 +1,6 @@
 output "nodes" {
   description = "List of all nodes"
-  value = [for node in proxmox_virtual_environment_vm.this[*] : {name = node.name, ip = trimsuffix(node.initialization[0].ip_config[0].ipv6[0].address, "/64") }]
+  value       = [for node in proxmox_virtual_environment_vm.this[*] : { name = node.name, ip = trimsuffix(node.initialization[0].ip_config[0].ipv6[0].address, "/64") }]
 }
 
 output "nodes_ip" {
