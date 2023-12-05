@@ -1,6 +1,14 @@
+variable "cluster_name" {
+  description = "Cluster Name"
+  type = string
+}
+
 variable "neighbors" {
-  description = "list of IPv6 nodes"
-  type        = list(string)
+  description = "List of nodes"
+  type = list(object({
+    name = string
+    ip   = string
+  }))
 }
 
 variable "remote_as" {
