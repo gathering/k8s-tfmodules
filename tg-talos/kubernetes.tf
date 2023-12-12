@@ -17,7 +17,9 @@ resource "local_file" "kubeconfig" {
   content  = data.talos_cluster_kubeconfig.this[0].kubeconfig_raw
   filename = "${path.root}/kubeconfig"
 
-  depends_on = [
-    data.talos_cluster_kubeconfig.this
-  ]
+  lifecycle {
+    ignore_changes = [
+      content
+    ]
+  }
 }

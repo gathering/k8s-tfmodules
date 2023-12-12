@@ -16,6 +16,7 @@ locals {
       servers  = var.time_servers
     }
     certSANs = [
+      "localhost",
       var.cluster_ip
     ]
   }
@@ -41,6 +42,12 @@ locals {
           disabled = true
         }
       }
+    }
+    apiServer = {
+      certSANs = [
+        "localhost",
+        var.cluster_ip
+      ]
     }
   }
 

@@ -7,6 +7,7 @@ resource "fortios_firewall_policy" "this" {
   schedule         = "always"
   ssl_ssh_profile  = "SSL-Monitor" # Hardcoded
   status           = "enable"
+  nat              = "enable"
 
   dstintf {
     name = "Infra"
