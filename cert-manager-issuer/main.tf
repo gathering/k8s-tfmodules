@@ -60,7 +60,7 @@ resource "kubernetes_manifest" "letsencrypt_prod" {
                 config = {
                   host = var.pdns_server
                   apiKeySecretRef = {
-                    name = kubernetes_secret.this.id
+                    name = kubernetes_secret.this.metadata[0].name
                     key  = "key"
                   }
                   ttl           = 120
