@@ -11,7 +11,7 @@ locals {
     env = [{ name = "EXTERNAL_DNS_PDNS_API_KEY"
       valueFrom = {
         secretKeyRef = {
-          name = kubernetes_secret.this.id
+          name = kubernetes_secret.this.metadata[0].name
           key  = "key"
         }
     } }]
