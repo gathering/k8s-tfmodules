@@ -35,5 +35,5 @@ variable "create_namespace" {
 variable "chart_version" {
   description = "value"
   type        = string
-  default     = "1.14.5"
+  default     = "1.13.1"
 }
