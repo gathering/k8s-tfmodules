@@ -27,6 +27,7 @@ locals {
 resource "helm_release" "traefik" {
   name       = "traefik"
   namespace  = var.namespace
+  create_namespace = var.create_namespace
   repository = "https://traefik.github.io/charts"
 
   chart   = "traefik"

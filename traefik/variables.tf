@@ -18,7 +18,13 @@ variable "traefik_version" {
 variable "namespace" {
   description = "value"
   type        = string
-  default     = "kube-system"
+  default     = "traefik"
+}
+
+variable "create_namespace" {
+  description = "value"
+  type = bool
+  default = true
 }
 
 variable "replicas" {
