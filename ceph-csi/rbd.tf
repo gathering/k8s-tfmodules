@@ -20,7 +20,8 @@ locals {
       enabled = true
     }
 
-    logLevel = 0
+    logLevel     = 0
+    selinuxMount = false
   }
 }
 

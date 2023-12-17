@@ -5,8 +5,8 @@ variable "pdns_server" {
 
 variable "pdns_key" {
   description = "value"
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
 
 variable "cluster_name" {
