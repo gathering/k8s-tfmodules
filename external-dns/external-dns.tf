@@ -13,8 +13,8 @@ locals {
     env = [{ name = "EXTERNAL_DNS_PDNS_API_KEY"
       valueFrom = {
         secretKeyRef = {
-          name = var.secret_name
-          key  = var.secret_key
+          name = ""
+          key  = "key"
         }
     } }]
   }

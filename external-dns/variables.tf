@@ -3,14 +3,10 @@ variable "pdns_server" {
   type        = string
 }
 
-variable "secret_name" {
+variable "pdns_key" {
   description = "value"
-  type        = string
-}
-
-variable "secret_key" {
-  description = "value"
-  type        = string
+  type = string
+  sensitive = true
 }
 
 variable "cluster_name" {

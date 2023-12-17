@@ -23,8 +23,8 @@ resource "kubernetes_manifest" "letsencrypt_staging" {
                 config = {
                   host = var.pdns_server
                   apiKeySecretRef = {
-                    name = var.secret_name
-                    key  = var.secret_key
+                    name = ""
+                    key  = "key"
                   }
                   ttl           = 120
                   timeout       = 10
@@ -60,8 +60,8 @@ resource "kubernetes_manifest" "letsencrypt_prod" {
                 config = {
                   host = var.pdns_server
                   apiKeySecretRef = {
-                    name = var.secret_name
-                    key  = var.secret_key
+                    name = ""
+                    key  = "key"
                   }
                   ttl           = 120
                   timeout       = 10
