@@ -10,12 +10,13 @@ locals {
       "--pdns-server=${var.pdns_server}"
     ]
     domainFilters = var.domain_filters
-    env = [
-      { name = "EXTERNAL_DNS_PDNS_API_KEY"
-        valueFrom = {
-          secretKeyRef = ""
-      } }
-    ]
+    env = [{ name = "EXTERNAL_DNS_PDNS_API_KEY"
+      valueFrom = {
+        secretKeyRef = {
+          name = var.secret_name
+          key  = var.secret_key
+        }
+    } }]
   }
 }
 
@@ -31,5 +32,4 @@ resource "helm_release" "this" {
   values = [
     yamlencode(local.external_dns)
   ]
-
 }
