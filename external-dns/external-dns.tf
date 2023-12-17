@@ -23,9 +23,8 @@ resource "helm_release" "this" {
   namespace  = var.namespace
   repository = "https://kubernetes-sigs.github.io/external-dns"
 
-  chart            = "external-dns"
-  version          = var.chart_version
-  create_namespace = var.create_namespace
+  chart   = "external-dns"
+  version = var.chart_version
 
   values = [
     yamlencode(local.external_dns)

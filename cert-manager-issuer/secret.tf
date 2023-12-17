@@ -7,4 +7,6 @@ resource "kubernetes_secret" "this" {
   data = {
     key = var.pdns_key
   }
+
+  depends_on = [kubernetes_namespace.this]
 }

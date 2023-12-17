@@ -8,5 +8,5 @@ resource "kubernetes_secret" "this" {
     key = var.pdns_key
   }
 
-  depends_on = [ helm_release.this ]
+  depends_on = [kubernetes_namespace.this]
 }
