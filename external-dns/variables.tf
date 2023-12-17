@@ -3,7 +3,7 @@ variable "pdns_server" {
   type        = string
 }
 
-variable "cluster_id" {
+variable "cluster_name" {
   description = "value"
   type        = string
 }

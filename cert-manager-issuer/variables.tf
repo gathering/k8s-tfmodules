@@ -1,4 +1,4 @@
-variable "pdns_host" {
+variable "pdns_server" {
   description = "value"
   type        = string
 }

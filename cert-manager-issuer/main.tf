@@ -21,7 +21,7 @@ resource "kubernetes_manifest" "letsencrypt_staging" {
                 groupName  = var.group_name
                 solverName = var.solver_name
                 config = {
-                  host = var.pdns_host
+                  host = var.pdns_server
                   apiKeySecretRef = {
                     name = var.secret_name
                     key  = var.secret_key
@@ -58,7 +58,7 @@ resource "kubernetes_manifest" "letsencrypt_prod" {
                 groupName  = var.group_name
                 solverName = var.solver_name
                 config = {
-                  host = var.pdns_host
+                  host = var.pdns_server
                   apiKeySecretRef = {
                     name = var.secret_name
                     key  = var.secret_key

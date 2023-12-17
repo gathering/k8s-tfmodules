@@ -4,7 +4,7 @@ locals {
       name = "pdns"
     }
 
-    txtOwnerId = var.cluster_id
+    txtOwnerId = var.cluster_name
 
     extraArgs = [
       "--pdns-server=${var.pdns_server}"
