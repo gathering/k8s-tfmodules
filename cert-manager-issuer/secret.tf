@@ -1,7 +1,7 @@
 resource "kubernetes_secret" "this" {
   metadata {
     name      = "pdns-key"
-    namespace = var.secret_namespace
+    namespace = var.namespace
   }
 
   data = {

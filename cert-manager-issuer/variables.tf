@@ -20,7 +20,7 @@ variable "allowed_zones" {
 }
 
 # Default Variables
-variable "secret_namespace" {
+variable "namespace" {
   description = "value"
   type        = string
   default     = "cert-manager"
@@ -36,4 +36,10 @@ variable "solver_name" {
   description = "value"
   type        = string
   default     = "pdns"
+}
+
+variable "cert_manager_pdns_version" {
+  description = "value"
+  type        = string
+  default     = "3.1.2"
 }

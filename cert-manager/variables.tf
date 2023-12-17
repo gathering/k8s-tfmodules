@@ -22,9 +22,3 @@ variable "cert_manager_chart_version" {
   type        = string
   default     = "v1.13.3"
 }
-
-variable "cert_manager_pdns_version" {
-  description = "value"
-  type        = string
-  default     = "3.1.2"
-}

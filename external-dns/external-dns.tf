@@ -23,7 +23,7 @@ locals {
 resource "helm_release" "this" {
   name       = "external-dns"
   namespace  = var.namespace
-  repository = "https://kubernetes-sigs.github.io/external-dns/"
+  repository = "https://kubernetes-sigs.github.io/external-dns"
 
   chart            = "external-dns"
   version          = var.chart_version
