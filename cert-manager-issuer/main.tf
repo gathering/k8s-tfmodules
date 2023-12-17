@@ -23,7 +23,7 @@ resource "kubernetes_manifest" "letsencrypt_staging" {
                 config = {
                   host = var.pdns_server
                   apiKeySecretRef = {
-                    name = ""
+                    name = kubernetes_secret.this.id
                     key  = "key"
                   }
                   ttl           = 120
@@ -60,7 +60,7 @@ resource "kubernetes_manifest" "letsencrypt_prod" {
                 config = {
                   host = var.pdns_server
                   apiKeySecretRef = {
-                    name = ""
+                    name = kubernetes_secret.this.id
                     key  = "key"
                   }
                   ttl           = 120
