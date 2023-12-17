@@ -85,7 +85,7 @@ resource "helm_release" "cilium" {
   repository = "https://helm.cilium.io"
 
   chart   = "cilium"
-  version = "1.14.4"
+  version = "1.14.5"
 
   values = [
     yamlencode(local.cilium)

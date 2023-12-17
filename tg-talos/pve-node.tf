@@ -55,6 +55,10 @@ resource "proxmox_virtual_environment_vm" "this" {
     vlan_id = data.netbox_vlan.this.vid
   }
 
+  smbios {
+    serial = "h=${netbox_virtual_machine.this[count.index].name}"
+  }
+
   lifecycle {
     ignore_changes = [
       node_name,

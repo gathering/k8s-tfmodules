@@ -1,12 +1,16 @@
-variable "namespace" {
-  default = "kube-system"
-  type    = string
-}
-
 variable "router_ip" {
-  type = string
+  description = "value"
+  type        = string
 }
 
 variable "asn" {
-  type = number
+  description = "value"
+  type        = number
+}
+
+# Default Variables
+variable "namespace" {
+  description = "value"
+  type        = string
+  default     = "kube-system"
 }

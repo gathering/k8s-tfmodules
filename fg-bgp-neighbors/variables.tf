@@ -11,6 +11,7 @@ variable "neighbors" {
   }))
 }
 
+# Default Variables
 variable "remote_as" {
   description = "Remote AS Number"
   type        = number
