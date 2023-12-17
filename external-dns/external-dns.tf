@@ -1,8 +1,6 @@
 locals {
   external_dns = {
-    provider = {
-      name = "pdns"
-    }
+    provider = "pdns"
 
     txtOwnerId = var.cluster_name
 
