@@ -16,7 +16,8 @@ variable "acme_email" {
 
 variable "allowed_zones" {
   description = "value"
-  type        = list(string)
+  # The type for some reason breaks kubernetes_manifest
+  #type        = list(string)
 }
 
 # Default Variables
