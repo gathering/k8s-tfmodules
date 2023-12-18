@@ -5,7 +5,8 @@ locals {
     txtOwnerId = var.cluster_name
 
     extraArgs = [
-      "--pdns-server=${var.pdns_server}"
+      "--pdns-server=${var.pdns_server}",
+      "--txt-prefix=k8s"
     ]
     domainFilters = var.domain_filters
     env = [{ name = "EXTERNAL_DNS_PDNS_API_KEY"
