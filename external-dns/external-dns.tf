@@ -6,7 +6,7 @@ locals {
 
     extraArgs = [
       "--pdns-server=${var.pdns_server}",
-      "--txt-prefix=k8s"
+      "--txt-prefix=k8s-"
     ]
     domainFilters = var.domain_filters
     env = [{ name = "EXTERNAL_DNS_PDNS_API_KEY"
