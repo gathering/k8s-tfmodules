@@ -9,7 +9,7 @@ variable "hostname" {
 }
 
 # Default Variables
-variable "traefik_version" {
+variable "chart_version" {
   description = "value"
   type        = string
   default     = "v26.0.0"

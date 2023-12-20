@@ -1,46 +1,46 @@
 variable "cluster_id" {
-  description = ""
+  description = "CEPH Cluster ID"
   type        = string
 }
 
 variable "pool" {
-  description = ""
+  description = "Ceph RBD Pool"
   type        = string
 }
 
 variable "monitors" {
-  description = ""
+  description = "Ceph Monitors"
   type        = list(string)
 }
 
 variable "ceph_user_id" {
-  description = ""
+  description = "Ceph User ID"
   type        = string
   sensitive   = true
 
 }
 
 variable "ceph_user_key" {
-  description = ""
+  description = "Ceph User Key"
   type        = string
   sensitive   = true
 }
 
 # Default Variables
 variable "namespace" {
-  description = ""
+  description = "Namespace used for Helm chart"
   type        = string
   default     = "kube-system"
 }
 
 variable "sc_name" {
-  description = ""
+  description = "Storageclass name"
   type        = string
   default     = "csi-rbd-sc"
 }
 
 variable "chart_version" {
-  description = ""
+  description = "Ceph CSI Chart Version"
   type        = string
   default     = "v3.10.0"
 }

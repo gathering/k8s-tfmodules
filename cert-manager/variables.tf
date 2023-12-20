@@ -12,13 +12,13 @@ variable "create_namespace" {
 }
 
 variable "group_name" {
-  description = "value"
+  description = "Group Name used in cert-manager PDNS"
   default     = "acme.gathering.systems"
   type        = string
 }
 
 variable "cert_manager_chart_version" {
-  description = "value"
+  description = "cert-manager chart version"
   type        = string
   default     = "v1.13.3"
 }

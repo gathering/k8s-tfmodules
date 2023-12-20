@@ -31,7 +31,7 @@ resource "helm_release" "traefik" {
   repository = "https://traefik.github.io/charts"
 
   chart   = "traefik"
-  version = var.traefik_version
+  version = var.chart_version
 
   values = [
     yamlencode(local.traefik)
