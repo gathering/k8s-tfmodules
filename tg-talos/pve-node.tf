@@ -1,12 +1,13 @@
 resource "proxmox_virtual_environment_vm" "this" {
   count = var.nodes
 
-  name        = netbox_virtual_machine.this[count.index].name
-  description = "Managed by Undercloud (Terraform)"
-  tags        = ["kubernetes", "terraform"]
-  node_name   = data.proxmox_virtual_environment_nodes.available_nodes.names[count.index] # This is kinda stupid
-  started     = true
-  on_boot     = false
+  name            = netbox_virtual_machine.this[count.index].name
+  description     = "Managed by Undercloud (Terraform)"
+  tags            = ["kubernetes", "terraform"]
+  node_name       = data.proxmox_virtual_environment_nodes.available_nodes.names[count.index] # This is kinda stupid
+  started         = true
+  on_boot         = false
+  stop_on_destroy = true
 
   clone {
     vm_id        = 9201 # todo find template id
@@ -21,6 +22,11 @@ resource "proxmox_virtual_environment_vm" "this" {
 
   memory {
     dedicated = var.memory
+  }
+
+  agent {
+    enabled = true
+    timeout = "2m"
   }
 
   disk {

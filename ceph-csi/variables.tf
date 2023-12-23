@@ -1,5 +1,5 @@
 variable "cluster_id" {
-  description = "CEPH Cluster ID"
+  description = "Ceph Cluster ID"
   type        = string
 }
 
@@ -42,5 +42,5 @@ variable "sc_name" {
 variable "chart_version" {
   description = "Ceph CSI Chart Version"
   type        = string
-  default     = "v3.10.0"
+  default     = "v3.10.1"
 }

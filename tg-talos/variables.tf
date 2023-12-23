@@ -132,7 +132,7 @@ variable "time_servers" {
 variable "talos_version" {
   description = "Talosctl Version"
   type        = string
-  default     = "v1.5.5"
+  default     = "v1.6.1"
 }
 
 variable "talos_inline_manifests" {
