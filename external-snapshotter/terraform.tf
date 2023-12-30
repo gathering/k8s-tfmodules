@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     kubectl = {
-      source  = "alekc/kubectl"
+      source = "alekc/kubectl"
     }
   }
 }

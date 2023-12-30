@@ -23,8 +23,8 @@ variable "namespace" {
 
 variable "create_namespace" {
   description = "value"
-  type = bool
-  default = true
+  type        = bool
+  default     = true
 }
 
 variable "replicas" {
