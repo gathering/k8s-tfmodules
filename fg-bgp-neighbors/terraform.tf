@@ -1,8 +1,10 @@
 terraform {
   required_providers {
+    netbox = {
+      source = "e-breuninger/netbox"
+    }
     fortios = {
-      source  = "fortinetdev/fortios"
-      version = "1.18.1"
+      source = "fortinetdev/fortios"
     }
   }
 }
